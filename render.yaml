@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: pref-webapp
+    env: docker
+    image:
+      url: ivanmilenkovic/pref:$version 
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: production
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: pref-redis
+          property: connectionString
+
+  - type: redis
+    name: pref-redis
+    plan: starter
+    maxmemoryPolicy: allkeys-lru
+

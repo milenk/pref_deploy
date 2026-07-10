@@ -8,7 +8,7 @@ projects:
       name: optimix-preferans
       runtime: image
       image:
-        url: ivanmilenkovic/pref:1.6.32
+        url: ivanmilenkovic/pref:1.6.34
         creds:
           fromRegistryCreds:
             name: Docker read
